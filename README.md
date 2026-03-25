@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prompt Market
 
-## Getting Started
+## Description
 
-First, run the development server:
+This project was built primarily as a learning exercise to deeply understand and integrate **Clerk** (for authentication and user management) and **Stripe** (for payments, checkout, and webhook handling) within a modern **Next.js** application. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+It serves as a fully functional marketplace where users can browse, buy, and sell AI prompts (for ChatGPT, Midjourney, Claude, etc.), demonstrating how to handle secure user sessions, protected routes, database synchronization via webhooks, and complex payment flows.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework:** [Next.js](https://nextjs.org/) (React, App Router, Server Actions)
+- **Authentication:** [Clerk](https://clerk.com/) (OAuth, Webhooks, Protected Routes)
+- **Payments:** [Stripe](https://stripe.com/) (Checkout Sessions, Webhooks)
+- **Database:** PostgreSQL
+- **ORM:** [Drizzle ORM](https://orm.drizzle.team/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Language:** TypeScript
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- **Robust Authentication:** Seamless sign-up and sign-in experiences managed by Clerk, with user data synced to the local database via Clerk webhooks.
+- **Secure Checkout:** Purchasing prompts uses Stripe Checkout Sessions, handling both free and paid digital products.
+- **Instant Access:** Purchased prompts are immediately unlocked and available in the user's dashboard, with order fulfillment handled securely via Stripe webhooks and success page verifications.
+- **Seller Dashboard:** Users can create, edit, and manage their own prompts to sell on the marketplace.
+- **Admin Management:** Dedicated admin roles and dashboards for managing users, prompts, and reviews.
 
-To learn more about Next.js, take a look at the following resources:
+## Screenshots
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<img src="images/screenshot%201.png" alt="Screenshot 1" width="800">
+<img src="images/screenshot%202.png" alt="Screenshot 2" width="800">
+<img src="images/screenshot%203.png" alt="Screenshot 3" width="800">

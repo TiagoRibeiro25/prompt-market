@@ -1,8 +1,76 @@
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { CheckCircle, Library, ArrowRight } from "lucide-react";
+import Stripe from "stripe";
+import { db } from "@/db";
+import { purchases, prompts } from "@/db/schema";
+import { eq } from "drizzle-orm";
 
-export default function CheckoutSuccessPage() {
+export default async function CheckoutSuccessPage({
+	searchParams,
+}: {
+	searchParams: Promise<{ session_id?: string }>;
+}) {
+	const resolvedSearchParams = await searchParams;
+	const sessionId = resolvedSearchParams.session_id;
+
+	if (sessionId) {
+		const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+			apiVersion: "2026-02-25.clover",
+		});
+
+		try {
+			const session = await stripe.checkout.sessions.retrieve(sessionId);
+
+			if (session.payment_status === "paid") {
+				const promptId = session.metadata?.promptId;
+				const buyerId = session.metadata?.buyerId;
+
+				if (promptId && buyerId) {
+					const existingPurchase = await db.query.purchases.findFirst(
+						{
+							where: (p, { and, eq }) =>
+								and(
+									eq(p.promptId, promptId),
+									eq(p.buyerId, buyerId),
+								),
+						},
+					);
+
+					if (!existingPurchase) {
+						const purchaseId = crypto.randomUUID();
+
+						await db.insert(purchases).values({
+							id: purchaseId,
+							buyerId: buyerId,
+							promptId: promptId,
+							stripePaymentId:
+								(session.payment_intent as string) || null,
+							amountPaid: session.amount_total
+								? (session.amount_total / 100).toString()
+								: "0",
+						});
+
+						const prompt = await db.query.prompts.findFirst({
+							where: eq(prompts.id, promptId),
+						});
+
+						if (prompt) {
+							await db
+								.update(prompts)
+								.set({ totalSales: prompt.totalSales + 1 })
+								.where(eq(prompts.id, promptId));
+						}
+					}
+				}
+			}
+		} catch (error) {
+			console.error("Error verifying checkout session:", error);
+		}
+	}
+
 	return (
 		<div className="min-h-screen bg-[#FAFAFA] flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-900">
 			<Navbar />
