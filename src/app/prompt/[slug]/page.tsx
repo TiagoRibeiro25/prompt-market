@@ -131,7 +131,7 @@ export default async function PromptDetailPage({
 
 						{/* Teaser */}
 						<div className="bg-white p-8 rounded-3xl border border-gray-200/80 shadow-sm relative overflow-hidden">
-							<div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+							<div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-indigo-500 to-purple-500"></div>
 							<h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
 								Prompt Teaser
 							</h3>

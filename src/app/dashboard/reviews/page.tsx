@@ -109,7 +109,7 @@ export default async function DashboardReviewsPage() {
 											<span>Prompt:</span>
 											<Link
 												href={`/prompt/${review.prompt.slug}`}
-												className="text-indigo-600 hover:text-indigo-700 hover:underline truncate max-w-[200px]"
+												className="text-indigo-600 hover:text-indigo-700 hover:underline truncate max-w-50"
 											>
 												{review.prompt.title}
 											</Link>

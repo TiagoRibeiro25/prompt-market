@@ -59,8 +59,8 @@ export default async function StoreProfilePage({
 			{/* Store Header / Hero */}
 			<div className="bg-white border-b border-gray-200">
 				{/* Banner Pattern */}
-				<div className="h-48 w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 relative overflow-hidden">
-					<div className="absolute inset-0 opacity-20 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+				<div className="h-48 w-full bg-linear-to-r from-indigo-500 via-purple-500 to-indigo-600 relative overflow-hidden">
+					<div className="absolute inset-0 opacity-20 bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-size-[20px_20px]"></div>
 				</div>
 
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">

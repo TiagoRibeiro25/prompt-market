@@ -37,8 +37,8 @@ export function PromptCard({
 			className="group flex flex-col bg-white border border-gray-200/80 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-indigo-500/5 hover:-translate-y-1 transition-all duration-300 h-full"
 		>
 			{/* Card Header Pattern */}
-			<div className="h-32 w-full bg-gradient-to-br from-indigo-50 to-purple-50 relative overflow-hidden border-b border-gray-100 shrink-0">
-				<div className="absolute inset-0 opacity-20 bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:12px_12px]"></div>
+			<div className="h-32 w-full bg-linear-to-br from-indigo-50 to-purple-50 relative overflow-hidden border-b border-gray-100 shrink-0">
+				<div className="absolute inset-0 opacity-20 bg-[radial-gradient(#6366f1_1px,transparent_1px)] bg-size-[12px_12px]"></div>
 				<div className="absolute bottom-4 left-4 flex gap-2">
 					<span
 						className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border shadow-sm backdrop-blur-md ${getCategoryColor(

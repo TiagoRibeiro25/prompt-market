@@ -79,7 +79,7 @@ export default function AdminReviewList({
 											: ""
 									}`}
 								>
-									<td className="px-6 py-4 whitespace-normal min-w-[250px] max-w-[400px]">
+									<td className="px-6 py-4 whitespace-normal min-w-62.5 max-w-100">
 										<div className="flex items-center gap-1 mb-1.5">
 											{[...Array(5)].map((_, i) => (
 												<Star
@@ -111,7 +111,7 @@ export default function AdminReviewList({
 										</div>
 									</td>
 									<td className="px-6 py-4">
-										<div className="font-medium text-gray-900 truncate max-w-[200px]">
+										<div className="font-medium text-gray-900 truncate max-w-50">
 											{review.prompt.title}
 										</div>
 										<Link

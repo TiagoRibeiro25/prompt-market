@@ -23,7 +23,7 @@ export default async function ExplorePage({
 			or(
 				ilike(prompts.title, `%${q}%`),
 				ilike(prompts.description, `%${q}%`),
-			)!
+			)!,
 		);
 	}
 
@@ -53,15 +53,15 @@ export default async function ExplorePage({
 							Explore Prompts
 						</h1>
 						<p className="text-lg text-gray-600">
-							Browse our entire collection of high-quality, premium AI
-							prompts crafted by experts.
+							Browse our entire collection of high-quality,
+							premium AI prompts crafted by experts.
 						</p>
 					</div>
 
 					<form
 						method="GET"
 						action="/explore"
-						className="w-full md:w-auto flex-shrink-0 flex items-center gap-3"
+						className="w-full md:w-auto shrink-0 flex items-center gap-3"
 					>
 						<div className="relative w-full md:w-80">
 							<div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -75,7 +75,9 @@ export default async function ExplorePage({
 								className="w-full pl-10 pr-4 py-3 rounded-2xl border border-gray-200/80 bg-white shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
 							/>
 						</div>
-						{sort && <input type="hidden" name="sort" value={sort} />}
+						{sort && (
+							<input type="hidden" name="sort" value={sort} />
+						)}
 						<button
 							type="submit"
 							className="bg-indigo-600 text-white px-6 py-3 rounded-2xl font-semibold hover:bg-indigo-700 transition-colors shadow-sm hidden md:block"
@@ -166,8 +168,9 @@ export default async function ExplorePage({
 							No prompts found
 						</h3>
 						<p className="text-gray-500 max-w-sm mx-auto">
-							We couldn&apos;t find any prompts matching your search criteria.
-							Try adjusting your filters or search query.
+							We couldn&apos;t find any prompts matching your
+							search criteria. Try adjusting your filters or
+							search query.
 						</p>
 						{(q || sort !== "newest") && (
 							<Link

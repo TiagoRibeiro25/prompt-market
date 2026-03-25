@@ -108,7 +108,7 @@ export default async function PurchasesPromptRevealPage({
 
 			<div className="bg-white rounded-3xl border border-gray-200/80 shadow-xl shadow-gray-200/40 overflow-hidden">
 				{/* Header Banner */}
-				<div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-8 text-white relative overflow-hidden">
+				<div className="bg-linear-to-r from-indigo-600 to-purple-600 p-8 text-white relative overflow-hidden">
 					<div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl"></div>
 					<div className="flex items-center gap-2 text-indigo-100 font-medium mb-3">
 						<LockOpen className="w-5 h-5" />
